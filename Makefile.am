@@ -26,9 +26,9 @@ if BUILD_FOR_LINUX
 if INSTALL_SYSTEMD_STARTUP
 	getent group nqptp &>/dev/null || groupadd -r nqptp &>/dev/null
 	getent passwd nqptp &> /dev/null || useradd -r -M -g nqptp -s /usr/sbin/nologin nqptp &>/dev/null
-	[ -e $(DESTDIR)$(libdir)/systemd/system ] || mkdir -p $(DESTDIR)$(libdir)/systemd/system
+	[ -e $(DESTDIR)/lib/systemd/system ] || mkdir -p $(DESTDIR)/lib/systemd/system
 # don't replace a service file if it already exists...
-	[ -e $(DESTDIR)$(libdir)/systemd/system/nqptp.service ] || cp nqptp.service $(DESTDIR)$(libdir)/systemd/system
+	[ -e $(DESTDIR)/lib/systemd/system/nqptp.service ] || cp nqptp.service $(DESTDIR)/lib/systemd/system
 endif
 endif
 
